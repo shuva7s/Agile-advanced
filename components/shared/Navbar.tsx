@@ -1,4 +1,4 @@
-import { UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "../theme/ModeToggle";
 
 const Navbar = () => {
@@ -9,11 +9,13 @@ const Navbar = () => {
   };
   return (
     <header className="shadow-sm">
-      <nav className="wrapper flex flex-row justify-between items-center py-4">
+      <nav className="flex flex-row justify-between items-center py-4">
         <p>LOGO</p>
         <div className="flex flex-row gap-3">
           <ModeToggle />
-          <UserButton appearance={userButtonAppearance} />
+          <SignedIn>
+            <UserButton appearance={userButtonAppearance} />
+          </SignedIn>
         </div>
       </nav>
     </header>
